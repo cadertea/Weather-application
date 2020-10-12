@@ -32,7 +32,7 @@
             </div>
         </div>
     </header>
-    <!-- <div class="container"> -->
+    <div class="container">
         <div class="row">
             <div class="col-4 bg-light">
                 <p class="search-header my-1">Search for a city</p>
@@ -45,7 +45,9 @@
                     </div>
                 </div>
                 <button class="btn btn-primary mb-3" type="button" id="clear-history">Clear history</button>
-                <form id="history"></form>
+<!-- //this will contain all my local storage data -->
+                <div id="history"></div>
+
             </div>
             <div class="col-8">
                 <div class="row mr-0">
@@ -83,8 +85,8 @@
                         <h3>5-Day Forecast</h3>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                <div id="forcast" class="row">
+                    <div ></div>
                     <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
                     <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
                     <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
@@ -92,9 +94,11 @@
                 </div>
             </div>
         </div>
-    <!-- </div> -->
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js.js"></script>
+    <!-- <script src="js2.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
 </html>
