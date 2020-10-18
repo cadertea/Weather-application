@@ -1,2 +1,3 @@
 # Weather-application
-Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. My challenge was to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+![image](https://user-images.githubusercontent.com/68858765/96373498-d7ba0580-113a-11eb-8188-95deb645a4bb.png)
