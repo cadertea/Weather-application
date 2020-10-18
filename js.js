@@ -95,7 +95,7 @@ function query3(cityInput) {
       for (let i = 0; i < response3.list.length; i = i + 8) {
         forcast += `<div class="col forecast bg-primary text-white ml-3 mb-3 rounded">
         ${response3.list[i].dt_txt}
-       <p> Temperature: ${response3.list[i].main.temp}</p>
+       <p> Temperature: ${response3.list[i].main.temp} <b>℉</b> </p>
         <img src="http://openweathermap.org/img/wn/${response3.list[i].weather[0].icon}@2x.png" />
         <p>wind speed :${response3.list[i].wind.speed}<p>
         <p>Description: ${response3.list[i].weather[0].description}<p>
@@ -130,8 +130,16 @@ $('#history').on('click', ".previuosCity", function () {
   console.log(cityInput);
   callingforcast(cityInput);
   query3(cityInput);
+ 
 
 });
 display()
   // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
  // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
+
+ $('#clear-history').on("click",function(){
+   historycity.splice(0)
+   localStorage.setItem("history", JSON.stringify(historycity))
+   display()
+
+ })
