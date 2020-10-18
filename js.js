@@ -13,7 +13,7 @@ $("#search-button").on("click", function () {
 function callingforcast(cityInput) {
 
   // Constructing a URL to search Giphy for the name of the person who said the quote
-  var queryURL = " http://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&appid=c2346b5853a5f70fdfb971c5c6033ff2";
+  var queryURL = " https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&appid=c2346b5853a5f70fdfb971c5c6033ff2";
 
   // Performing our AJAX GET request
   $.ajax({
@@ -49,7 +49,7 @@ function callingforcast(cityInput) {
       $('#wind-speed').html('<h6>' + 'Wind-Speed: ' + windSpeed + ' MPH')
       // $('#UV-index').html('<h6>'+ 'UV-Index: ' + windSpeed + ' MPH')
 
-      var queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=c2346b5853a5f70fdfb971c5c6033ff2";
+      var queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=c2346b5853a5f70fdfb971c5c6033ff2";
       // console.log(queryURL2);
       $.ajax({
         url: queryURL2,
@@ -82,7 +82,7 @@ function callingforcast(cityInput) {
 //end of funciton paren. 
 function query3(cityInput) {
 
-  var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityInput + "&appid=c2346b5853a5f70fdfb971c5c6033ff2&units=imperial";
+  var queryURL3 = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInput + "&appid=c2346b5853a5f70fdfb971c5c6033ff2&units=imperial";
   // console.log(queryURL3);
   $.ajax({
     url: queryURL3,
@@ -96,18 +96,14 @@ function query3(cityInput) {
         forcast += `<div class="col forecast bg-primary text-white ml-3 mb-3 rounded">
         ${response3.list[i].dt_txt}
        <p> Temperature: ${response3.list[i].main.temp} <b>℉</b> </p>
-        <img src="http://openweathermap.org/img/wn/${response3.list[i].weather[0].icon}@2x.png" />
+        <img src="https://openweathermap.org/img/wn/${response3.list[i].weather[0].icon}@2x.png" />
         <p>wind speed :${response3.list[i].wind.speed}<p>
         <p>Description: ${response3.list[i].weather[0].description}<p>
         </div>
         `
-
-
       }
 
       $('#forcast').html(forcast)
-
-
 
     });
 
@@ -118,8 +114,6 @@ function display() {
   var html = ""
   for (var q = 0; q < historycity.length; q++) {
     html += `<button class='previuosCity'>${historycity[q]}</button>`
-
-
   }
   console.log(html)
   $('#history').html(html)
@@ -130,16 +124,15 @@ $('#history').on('click', ".previuosCity", function () {
   console.log(cityInput);
   callingforcast(cityInput);
   query3(cityInput);
- 
-
 });
+
 display()
-  // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
- // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
+// api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+// api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
 
- $('#clear-history').on("click",function(){
-   historycity.splice(0)
-   localStorage.setItem("history", JSON.stringify(historycity))
-   display()
+$('#clear-history').on("click", function () {
+  historycity.splice(0)
+  localStorage.setItem("history", JSON.stringify(historycity))
+  display()
 
- })
+})
